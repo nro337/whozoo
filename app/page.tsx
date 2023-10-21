@@ -5,6 +5,7 @@ import LogoutButton from '../components/LogoutButton'
 import SupabaseLogo from '../components/SupabaseLogo'
 import NextJsLogo from '../components/NextJsLogo'
 import DeployButton from '../components/DeployButton'
+import { DropdownMenu } from '@/components/ui/dropdown-menu'
 
 export const dynamic = 'force-dynamic'
 
@@ -55,6 +56,7 @@ export default async function Index() {
             <div className="flex items-center gap-4">
               Hey, {user.email}!
               <LogoutButton />
+              <DropdownMenu />
             </div>
           ) : (
             <Link
