@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
+import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,24 +21,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
         >
-          <main
-            className={cn(
-              "min-h-screen bg-background font-sans antialiased",
-              fontSans.variable
-            )}
-          >
-            {children}
-          </main>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+            </div>
+            <TailwindIndicator />
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
+  )
 }
