@@ -44,6 +44,21 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
+            <Link
+              href={siteConfig.links.account}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.account className="h-5 w-5" />
+                <span className="sr-only">Account</span>
+              </div>
+            </Link>
           </nav>
         </div>
       </div>
